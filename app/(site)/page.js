@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { PageContent } from "@/components/page-content";
 import { PaginatedPostList } from "@/components/paginated-post-list";
 import { listPosts } from "@/lib/posts";
@@ -7,7 +9,9 @@ export default function HomePage() {
 
   return (
     <PageContent showContentHeader={false}>
-      <PaginatedPostList posts={posts} />
+      <Suspense fallback={<PaginatedPostList posts={posts} />}>
+        <PaginatedPostList posts={posts} />
+      </Suspense>
     </PageContent>
   );
 }
