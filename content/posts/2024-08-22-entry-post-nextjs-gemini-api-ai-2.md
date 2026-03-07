@@ -9,16 +9,7 @@ coverImage: "https://blog.kakaocdn.net/dn/RzoNe/btsJb5jTEnw/TFvWoLwyZdKacGL6gt3e
 excerpt: "서비스 URL http://z0.kro.kr:8181 아무글 | 아무생각 없이 읽는 글 상상으로 만드는 이야기! 당신의 아이디어로, 모든 장르 불문하고 모든 소설을 다 써줍니다! 당신의 상상을 소설로 펼쳐보세요! 사진으로 만드는 이야기! 소설로 바꾸길 원하는 사진을 z0.kro.kr:8181 본론 다음글이 상당히 늦었던거"
 ---
 
-<h2>서비스 URL</h2>
-<p><a title="http://z0.kro.kr:8181" href="http://z0.kro.kr:8181" target="_blank" rel="noopener">http://z0.kro.kr:8181</a></p>
-<figure><a href="http://z0.kro.kr:8181" target="_blank" rel="noopener">
-<div> </div>
-<div>
-<p>아무글 | 아무생각 없이 읽는 글</p>
-<p>상상으로 만드는 이야기!   당신의 아이디어로, 모든 장르 불문하고 모든 소설을 다 써줍니다! 당신의 상상을 소설로 펼쳐보세요! 사진으로 만드는 이야기!   소설로 바꾸길 원하는 사진을</p>
-<p>z0.kro.kr:8181</p>
-</div>
-</a></figure>
+
 <p> </p>
 <h2>본론</h2>
 <p>다음글이 상당히 늦었던거 같다. 기다린 사람은 없겠지만 미리 사과 (_ _)</p>
