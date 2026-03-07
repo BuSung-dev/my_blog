@@ -2,12 +2,8 @@
 
 import { useEffect, useMemo, useRef } from "react";
 
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-function getGiscusThemeHref() {
-  const isDark = document.documentElement.classList.contains("dark-theme");
-  const themeFile = isDark ? "giscus-dark.css" : "giscus-light.css";
-  return `${window.location.origin}${BASE_PATH}/${themeFile}`.replace(/([^:]\/)\/+/g, "$1");
+function getGiscusThemeName() {
+  return document.documentElement.classList.contains("dark-theme") ? "dark" : "light";
 }
 
 function updateGiscusTheme() {
@@ -17,14 +13,14 @@ function updateGiscusTheme() {
     return;
   }
 
-  iframe.contentWindow.postMessage(
-    {
-      giscus: {
-        setConfig: {
-          theme: getGiscusThemeHref()
+    iframe.contentWindow.postMessage(
+      {
+        giscus: {
+          setConfig: {
+          theme: getGiscusThemeName()
+          }
         }
-      }
-    },
+      },
     "https://giscus.app"
   );
 }
@@ -53,10 +49,10 @@ export function GiscusComments({ config }) {
     script.setAttribute("data-category-id", config.categoryId);
     script.setAttribute("data-mapping", "pathname");
     script.setAttribute("data-strict", "0");
-    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-reactions-enabled", "0");
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "bottom");
-    script.setAttribute("data-theme", getGiscusThemeHref());
+    script.setAttribute("data-theme", getGiscusThemeName());
     script.setAttribute("data-lang", "ko");
 
     container.appendChild(script);
