@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -11,12 +12,10 @@ function getPageHref(page) {
   return page <= 1 ? "/" : `/?page=${page}`;
 }
 
-export function PaginatedPostList({ posts }) {
-  const searchParams = useSearchParams();
-  const rawPage = Number(searchParams.get("page") || "1");
+function PaginatedPostListContent({ posts, currentPage }) {
   const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
-  const currentPage = Number.isFinite(rawPage) ? Math.min(Math.max(rawPage, 1), totalPages) : 1;
-  const startIndex = (currentPage - 1) * PAGE_SIZE;
+  const safePage = Number.isFinite(currentPage) ? Math.min(Math.max(currentPage, 1), totalPages) : 1;
+  const startIndex = (safePage - 1) * PAGE_SIZE;
   const visiblePosts = posts.slice(startIndex, startIndex + PAGE_SIZE);
 
   return (
@@ -29,8 +28,8 @@ export function PaginatedPostList({ posts }) {
 
       {totalPages > 1 ? (
         <nav className="pagination-nav" aria-label="Post pages">
-          {currentPage > 1 ? (
-            <Link href={getPageHref(currentPage - 1)} className="pagination-link ripple">
+          {safePage > 1 ? (
+            <Link href={getPageHref(safePage - 1)} className="pagination-link ripple">
               Prev
             </Link>
           ) : null}
@@ -40,21 +39,36 @@ export function PaginatedPostList({ posts }) {
               <Link
                 key={page}
                 href={getPageHref(page)}
-                className={`pagination-link ripple ${page === currentPage ? "active" : ""}`}
-                aria-current={page === currentPage ? "page" : undefined}
+                className={`pagination-link ripple ${page === safePage ? "active" : ""}`}
+                aria-current={page === safePage ? "page" : undefined}
               >
                 {page}
               </Link>
             ))}
           </div>
 
-          {currentPage < totalPages ? (
-            <Link href={getPageHref(currentPage + 1)} className="pagination-link ripple">
+          {safePage < totalPages ? (
+            <Link href={getPageHref(safePage + 1)} className="pagination-link ripple">
               Next
             </Link>
           ) : null}
         </nav>
       ) : null}
     </>
+  );
+}
+
+function SearchParamPaginatedPostList({ posts }) {
+  const searchParams = useSearchParams();
+  const rawPage = Number(searchParams.get("page") || "1");
+
+  return <PaginatedPostListContent posts={posts} currentPage={rawPage} />;
+}
+
+export function PaginatedPostList({ posts }) {
+  return (
+    <Suspense fallback={<PaginatedPostListContent posts={posts} currentPage={1} />}>
+      <SearchParamPaginatedPostList posts={posts} />
+    </Suspense>
   );
 }
