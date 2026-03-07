@@ -213,6 +213,7 @@
   padding: 0;
   gap: 0;
   overflow: hidden;
+  min-width: 0;
 }
 
 .article-shell .article-hero {
@@ -224,6 +225,8 @@
 .article-shell .article-body {
   padding: 24px;
   gap: 0;
+  overflow-x: hidden;
+  min-width: 0;
 }
 
 .article-title,
@@ -303,6 +306,7 @@
   padding: 0;
   overflow-wrap: anywhere;
   word-break: break-word;
+  min-width: 0;
 }
 
 .markdown-body > * + * {
@@ -336,18 +340,28 @@
 }
 
 .markdown-body pre {
+  display: block;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
   padding: 16px;
   border-radius: 16px;
   background-color: var(--md-sys-color-surface-container-high);
   overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .markdown-body pre code {
+  display: block;
+  min-width: max-content;
+  width: fit-content;
   padding: 0;
   background: transparent;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  white-space: pre;
+  overflow-wrap: normal;
+  word-break: normal;
+  tab-size: 2;
 }
 
 .markdown-body pre code.hljs {

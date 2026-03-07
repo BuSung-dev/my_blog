@@ -111,7 +111,6 @@ export function SearchOverlay({ items }) {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               className="search-input"
-              placeholder="Search posts, tags, categories"
               placeholder="Search posts"
             />
             <span className="search-shortcut">ESC</span>
@@ -128,7 +127,6 @@ export function SearchOverlay({ items }) {
                         <h2 className="search-result-title">{item.title}</h2>
                       </div>
                       <p className="search-result-meta">{item.meta}</p>
-                      {item.description ? <p className="search-result-description">{item.description}</p> : null}
                     </div>
                     <MaterialIcon name="north_east" className="search-result-arrow" />
                   </Link>
