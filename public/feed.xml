@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title><![CDATA[busung]]></title>
+    <link>https://example.com</link>
+    <description><![CDATA[Next.js와 Markdown으로 운영하는 GitHub Pages 기반 개인 기술 블로그입니다.]]></description>
+    <language>ko-KR</language>
+    <item>
+      <title><![CDATA[Next.js 정적 블로그 시작하기]]></title>
+      <link>https://example.com/posts/2026-03-07-nextjs-static-blog-start</link>
+      <guid>https://example.com/posts/2026-03-07-nextjs-static-blog-start</guid>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[GitHub Pages에 올릴 수 있는 정적 블로그 구조를 간단히 정리한 첫 글입니다.]]></description>
+      <category><![CDATA[Development]]></category>
+    </item>
+    <item>
+      <title><![CDATA[왜 블로그를 다시 시작했는가]]></title>
+      <link>https://example.com/posts/2026-03-06-why-i-write</link>
+      <guid>https://example.com/posts/2026-03-06-why-i-write</guid>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[기록이 쌓이면 결국 나중의 나를 가장 많이 도와준다는 생각으로 다시 글을 쓰기 시작했습니다.]]></description>
+      <category><![CDATA[Thoughts]]></category>
+    </item>
+  </channel>
+</rss>

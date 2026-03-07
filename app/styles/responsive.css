@@ -1,0 +1,284 @@
+@media (max-width: 860px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .main-content {
+    order: 1;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .icon-btn.mobile-menu-btn {
+    display: inline-flex;
+  }
+
+  .mobile-nav-overlay.open {
+    display: block;
+  }
+
+  .mobile-nav.open {
+    display: flex;
+  }
+
+  .header-actions {
+    gap: 4px;
+  }
+
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-btn .material-symbols-outlined {
+    font-size: 20px;
+  }
+
+  .sticky-wrapper {
+    position: static;
+  }
+
+  .post-pagination {
+    grid-template-columns: 1fr;
+  }
+
+  .category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .category-shell {
+    padding: 24px;
+    background-color: var(--md-sys-color-surface-container-low);
+    border: 1px solid transparent;
+    border-radius: var(--md-sys-shape-corner-large);
+  }
+
+  html:not(.dark-theme) .category-shell {
+    background-color: var(--md-sys-color-surface);
+  }
+
+  .category-row {
+    min-height: 56px;
+    padding: 0 4px;
+    border-top: 1px dashed var(--md-sys-color-outline-variant);
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  .category-row:first-child {
+    border-top: 0;
+  }
+
+  .timeline-shell {
+    margin-top: 40px;
+    gap: 28px;
+  }
+
+  .timeline-year-header {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .timeline-year {
+    font-size: 1.7rem;
+  }
+
+  .timeline-row {
+    grid-template-columns: 56px 16px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+    padding: 10px 0;
+  }
+
+  .timeline-marker::after {
+    height: calc(100% + 24px);
+  }
+
+  .timeline-title {
+    font-size: 0.98rem;
+  }
+
+  .timeline-tags {
+    grid-column: 3;
+    margin-top: 4px;
+    text-align: left;
+    font-size: 0.82rem;
+    white-space: normal;
+  }
+
+  .content-header {
+    margin: 40px 0 0;
+    padding: 18px 20px;
+    border-radius: 24px;
+    background-color: var(--md-sys-color-surface-container-low);
+  }
+
+  .content-header + .post-list {
+    margin-top: 0;
+  }
+
+  .article-shell {
+    margin-top: 40px;
+  }
+
+  .article-shell .article-hero {
+    padding: 20px 20px 18px;
+    gap: 16px;
+  }
+
+  .article-shell .article-body {
+    padding: 20px;
+  }
+
+  .article-title {
+    font-size: 2.2rem;
+  }
+
+  .post-list {
+    gap: 0;
+    padding: 0;
+    margin-top: 40px;
+  }
+
+  .post-list .post-card {
+    border-top: 1px dashed var(--md-sys-color-outline-variant);
+    border-radius: 0;
+    padding: 24px 0;
+    overflow: hidden;
+    background-color: var(--md-sys-color-surface-container-low);
+  }
+
+  .post-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .post-thumbnail {
+    order: -1;
+    width: calc(100% - 40px);
+    height: min(150px, calc((100vw - 40px) * 9 / 16));
+    max-height: 150px;
+    margin: 0 20px 16px;
+    border-radius: 20px;
+  }
+
+  .post-content {
+    order: 1;
+    gap: 14px;
+    padding: 0 20px 0;
+  }
+
+  .post-title {
+    font-size: 1.85rem;
+    line-height: 1.15;
+  }
+
+  .post-excerpt {
+    font-size: 0.98rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .post-tags {
+    gap: 8px;
+  }
+
+  .post-taglist {
+    white-space: normal;
+  }
+
+  .post-stats {
+    font-size: 0.88rem;
+  }
+
+  .post-fallback {
+    display: none;
+  }
+
+  .post-list .post-card:first-child {
+    border-top: 0;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+
+  .post-list .post-card:last-child {
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-dialog {
+    top: 20px;
+    width: calc(100vw - 20px);
+  }
+
+  .article-stat,
+.article-badge {
+  padding: 5px 12px;
+  min-height: 22px;
+  font-size: 0.73rem;
+}
+
+
+
+  .search-shell {
+    border-radius: 24px;
+  }
+
+  .search-input-row {
+    padding: 18px 18px 14px;
+  }
+
+  .search-input {
+    font-size: 1.05rem;
+  }
+
+  .search-hint {
+    padding: 0 18px 14px;
+    font-size: 0.75rem;
+  }
+
+  .search-result {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .search-result-head {
+    flex-wrap: wrap;
+  }
+
+  .post-list {
+    padding: 0;
+  }
+
+  .article-title {
+    font-size: 1.7rem;
+  }
+
+  .article-taglist {
+    font-size: 0.88rem;
+  }
+
+  .post-content {
+    padding: 0 20px 0;
+  }
+
+  .post-title {
+    font-size: 1.45rem;
+  }
+
+  .collection-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}

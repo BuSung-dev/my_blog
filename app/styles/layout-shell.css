@@ -1,0 +1,209 @@
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sticky-wrapper {
+  position: sticky;
+  top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.md-card {
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-large);
+  padding: 20px;
+  transition: background-color 0.4s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.sidebar .md-card {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.main-content .md-card {
+  background-color: var(--md-sys-color-surface-container-low);
+}
+
+html:not(.dark-theme) body {
+  background-color: color-mix(
+    in srgb,
+    var(--md-sys-color-background) 74%,
+    var(--md-sys-color-primary-container) 26%
+  );
+}
+
+html:not(.dark-theme) .md-card,
+html:not(.dark-theme) .main-content .md-card {
+  background-color: var(--md-sys-color-surface);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  min-height: 64px;
+  max-width: 64px;
+  max-height: 64px;
+  flex: 0 0 64px;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.profile-info h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.md-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 24px;
+  height: 40px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.md-btn-tonal {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--md-sys-color-on-surface);
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0 -16px;
+  border-radius: var(--md-sys-shape-corner-small);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  color: var(--md-sys-color-on-surface);
+}
+
+.list-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--md-sys-color-on-surface);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.list-item:hover::after {
+  opacity: var(--md-sys-state-hover);
+}
+
+.sidebar-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--md-sys-color-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 8px 10px;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.md-chip {
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--md-sys-color-on-surface-variant);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.md-chip.active {
+  background-color: var(--md-sys-color-on-surface);
+  color: var(--md-sys-color-surface);
+  border-color: transparent;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.content-header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.content-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-background);
+}
+
+.content-description {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.95rem;
+}

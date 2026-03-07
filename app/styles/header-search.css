@@ -1,0 +1,407 @@
+.global-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--md-sys-color-surface);
+  border-radius: 0 0 var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large);
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 300;
+  box-shadow: var(--md-sys-elevation-2);
+  transition: background-color 0.4s ease, transform 0.28s ease, opacity 0.28s ease;
+}
+
+.global-header.is-hidden {
+  transform: translateY(calc(-100% - 12px));
+  opacity: 0;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-brand .material-symbols-outlined {
+  color: var(--md-sys-color-primary);
+  font-size: 28px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.2s;
+}
+
+.nav-link.active {
+  color: var(--md-sys-color-on-primary);
+  background-color: var(--md-sys-color-primary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.icon-btn.mobile-menu-btn {
+  display: none;
+}
+
+.icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-sys-color-on-surface-variant);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.settings-panel {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 320px;
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-large);
+  padding: 24px;
+  box-shadow: var(--md-sys-elevation-3);
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.settings-panel.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.settings-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.settings-overlay.open {
+  display: block;
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 320;
+  display: none;
+  background: rgba(15, 18, 24, 0.24);
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 84px;
+  right: 24px;
+  z-index: 330;
+  width: min(280px, calc(100vw - 32px));
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 24px;
+  background-color: var(--md-sys-color-surface);
+  box-shadow: var(--md-sys-elevation-3);
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-nav-link.active {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 450;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(15, 18, 24, 0.36);
+  backdrop-filter: blur(18px);
+  transition: opacity 0.25s ease;
+}
+
+.search-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-dialog {
+  position: fixed;
+  top: 12vh;
+  left: 50%;
+  z-index: 500;
+  width: min(720px, calc(100vw - 32px));
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -16px) scale(0.985);
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.search-dialog.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.search-shell {
+  display: flex;
+  max-height: min(72vh, 640px);
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 32px;
+  background-color: var(--md-sys-color-surface);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.16);
+}
+
+.search-input-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 24px 18px;
+}
+
+.search-input-icon {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 28px;
+}
+
+.search-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--md-sys-color-on-surface);
+  font-family: inherit;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.search-input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.search-shortcut {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.search-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.84rem;
+}
+
+.search-result-list {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  padding: 0 12px 12px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
+.search-result-copy,
+.search-result-arrow,
+.search-empty > * {
+  position: relative;
+  z-index: 2;
+}
+
+.search-result-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.search-result-type {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+.search-result-title {
+  color: var(--md-sys-color-on-surface);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.search-result-meta,
+.search-result-description {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9rem;
+}
+
+.search-result-description {
+  margin-top: 4px;
+}
+
+.search-result-arrow {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.search-empty {
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.settings-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 16px;
+}
+
+.settings-section {
+  margin-bottom: 24px;
+}
+
+.settings-section-title {
+  font-size: 0.875rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.profile-copy {
+  margin-top: 4px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.92rem;
+}
+
+.color-picker {
+  display: flex;
+  gap: 12px;
+}
+
+.color-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.color-circle.active {
+  border-color: var(--md-sys-color-on-surface);
+}
+
+.interactive::after,
+.md-btn::after,
+.icon-btn::after,
+.nav-link::after,
+.header-brand::after,
+.color-circle::after,
+.md-chip::after,
+.search-result::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--md-sys-color-on-surface);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.interactive:hover::after,
+.md-btn:hover::after,
+.icon-btn:hover::after,
+.nav-link:hover::after,
+.header-brand:hover::after,
+.color-circle:hover::after,
+.md-chip:hover::after,
+.search-result:hover::after {
+  opacity: var(--md-sys-state-hover);
+}
