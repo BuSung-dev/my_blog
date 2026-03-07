@@ -24,8 +24,8 @@ export function SiteHeader({ searchItems }) {
   const navigation = [
     { href: "/", label: "Posts" },
     { href: "/timeline", label: "Timeline" },
-    { href: "/categories", label: "Series" },
-    { href: "/tags", label: "Tags" }
+    { href: "/tags", label: "Tags" },
+    { href: "/about", label: "WhoAmI" },
   ];
 
   useEffect(() => {

@@ -38,7 +38,7 @@ export function SiteShell({ title, description, children, showContentHeader = tr
             </div>
             <Link href="/about" className="md-btn md-btn-tonal ripple">
               <MaterialIcon name="person" style={{ fontSize: 18 }} />
-              <span>whoami</span>
+              <span>WhoAmI</span>
             </Link>
           </div>
 
