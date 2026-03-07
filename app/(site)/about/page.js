@@ -18,11 +18,11 @@ export default function AboutPage() {
           <p className="section-copy">{profile.bio}</p>
           <div className="about-grid">
             <div>
-              <h3 className="section-subtitle">관심 분야</h3>
+              <h3 className="section-subtitle">Interested in...</h3>
               <p className="section-copy">{profile.focus}</p>
             </div>
             <div>
-              <h3 className="section-subtitle">기록 방식</h3>
+              <h3 className="section-subtitle">Writing principles</h3>
               <p className="section-copy">{profile.writingPrinciples}</p>
             </div>
           </div>
