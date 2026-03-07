@@ -12,7 +12,7 @@ export function ThemeScript() {
       storedFontRaw === "nanum" || storedFontRaw === "pretendard"
         ? "default"
         : (storedFontRaw || "default");
-    const themeMode = storedTheme === "light" || storedTheme === "dark" || storedTheme === "auto" ? storedTheme : "auto";
+    const themeMode = storedTheme === "light" || storedTheme === "dark" || storedTheme === "auto" ? storedTheme : "dark";
     const resolvedTheme = themeMode === "auto"
       ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
       : themeMode;

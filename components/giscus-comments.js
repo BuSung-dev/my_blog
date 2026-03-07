@@ -2,6 +2,33 @@
 
 import { useEffect, useMemo, useRef } from "react";
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function getGiscusThemeHref() {
+  const isDark = document.documentElement.classList.contains("dark-theme");
+  const themeFile = isDark ? "giscus-dark.css" : "giscus-light.css";
+  return `${window.location.origin}${BASE_PATH}/${themeFile}`.replace(/([^:]\/)\/+/g, "$1");
+}
+
+function updateGiscusTheme() {
+  const iframe = document.querySelector("iframe.giscus-frame");
+
+  if (!iframe?.contentWindow) {
+    return;
+  }
+
+  iframe.contentWindow.postMessage(
+    {
+      giscus: {
+        setConfig: {
+          theme: getGiscusThemeHref()
+        }
+      }
+    },
+    "https://giscus.app"
+  );
+}
+
 export function GiscusComments({ config }) {
   const containerRef = useRef(null);
   const isConfigured = useMemo(() => {
@@ -29,12 +56,22 @@ export function GiscusComments({ config }) {
     script.setAttribute("data-reactions-enabled", "1");
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "bottom");
-    script.setAttribute("data-theme", "preferred_color_scheme");
+    script.setAttribute("data-theme", getGiscusThemeHref());
     script.setAttribute("data-lang", "ko");
 
     container.appendChild(script);
 
+    const observer = new MutationObserver(() => {
+      updateGiscusTheme();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class", "style"]
+    });
+
     return () => {
+      observer.disconnect();
       container.innerHTML = "";
     };
   }, [config, isConfigured]);
@@ -45,7 +82,6 @@ export function GiscusComments({ config }) {
 
   return (
     <section className="md-card comments-shell">
-      <h2 className="section-title comments-title">Comments</h2>
       <div ref={containerRef} className="giscus" />
     </section>
   );

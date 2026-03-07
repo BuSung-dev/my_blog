@@ -16,7 +16,7 @@ const FONT_OPTIONS = [
 export function ThemeControls() {
   const [isMounted, setIsMounted] = useState(false);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
-  const [themeMode, setThemeMode] = useState("auto");
+  const [themeMode, setThemeMode] = useState("dark");
   const [systemTheme, setSystemTheme] = useState("light");
   const [accent, setAccent] = useState("purple");
   const [font, setFont] = useState("default");
@@ -27,7 +27,7 @@ export function ThemeControls() {
     const storedAccent = localStorage.getItem("accent");
     const storedFont = localStorage.getItem("font");
 
-    setThemeMode(THEME_MODES.includes(storedTheme) ? storedTheme : "auto");
+    setThemeMode(THEME_MODES.includes(storedTheme) ? storedTheme : "dark");
     setSystemTheme(mediaQuery.matches ? "dark" : "light");
     setAccent(THEME_TOKENS[storedAccent] ? storedAccent : "purple");
     setFont(
