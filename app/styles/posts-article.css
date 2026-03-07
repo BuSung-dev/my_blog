@@ -85,7 +85,7 @@
 .post-thumbnail {
   width: 248px;
   min-width: 248px;
-  height: 210px;
+  height: 170px;
   border-radius: 20px;
   overflow: hidden;
   flex-shrink: 0;
@@ -474,15 +474,32 @@ html.dark-theme .markdown-body .hljs-meta .hljs-string {
 .about-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .about-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 2px 14px;
+  border-radius: 18px;
+  background-color: var(--md-sys-color-surface-container-low);
   color: var(--md-sys-color-on-surface-variant);
   line-height: 1.65;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.about-list-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  margin-top: 0.55rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+  background-color: var(--md-sys-color-primary);
 }
 
 .about-awards {
@@ -497,10 +514,31 @@ html.dark-theme .markdown-body .hljs-meta .hljs-string {
   gap: 10px;
 }
 
-.about-award-year {
-  font-size: 1.05rem;
+.about-award-item {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 34px;
+  padding: 0 10px;
+  border-radius: 999px;
+  color: var(--md-sys-color-on-primary-container);
+  font-size: 1.1rem;
   font-weight: 700;
-  color: var(--md-sys-color-primary);
+  letter-spacing: 0.02em;
+}
+
+.about-award-year {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .post-pagination {

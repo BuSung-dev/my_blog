@@ -9,6 +9,21 @@ export const metadata = {
   }
 };
 
+function DisclosureGroup({ title, items }) {
+  return (
+    <div className="about-award-group">
+      <p className="about-award-item">{title}</p>
+      <ul className="about-list">
+        {items.map((item) => (
+          <li key={item} className="about-list-item">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
     <PageContent showContentHeader={false}>
@@ -49,11 +64,21 @@ export default function AboutPage() {
             </ul>
           </div>
           <div className="about-section">
+            <h3 className="section-subtitle">CVE / KVE</h3>
+            <div className="about-grid">
+              <DisclosureGroup title="NAVER" items={profile.disclosures.naver} />
+              <DisclosureGroup title="ETC" items={profile.disclosures.etc} />
+              <DisclosureGroup title="KAKAO" items={profile.disclosures.kakao} />
+              <DisclosureGroup title="KISA" items={profile.disclosures.kisa} />
+              
+            </div>
+          </div>
+          <div className="about-section">
             <h3 className="section-subtitle">수상 및 활동</h3>
             <div className="about-awards">
               {profile.awards.map((group) => (
                 <div key={group.year} className="about-award-group">
-                  <p className="about-award-year">{group.year}</p>
+                  <p className="about-award-year">#{group.year}</p>
                   <ul className="about-list">
                     {group.entries.map((entry) => (
                       <li key={entry} className="about-list-item">

@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 
 import { PostCard } from "@/components/post-card";
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 6;
 
 function getPageHref(page) {
   return page <= 1 ? "/" : `/?page=${page}`;

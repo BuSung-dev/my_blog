@@ -56,12 +56,15 @@ export function SiteShell({ title, description, children, showContentHeader = tr
                   </Link>
                 ))}
               </div>
-              {categories.length > visibleCategories.length ? (
-                <Link href="/categories" className="sidebar-more-link ripple">
-                  <span>More</span>
-                  <MaterialIcon name="east" style={{ fontSize: 18 }} />
-                </Link>
-              ) : null}
+              <div style={{ width: "100%", textAlign: "center" }}>
+                {categories.length > visibleCategories.length ? (
+                  <Link href="/categories" className="sidebar-more-link ripple">
+                    <span>More</span>
+                    <MaterialIcon name="east" style={{ fontSize: 18 }} />
+                  </Link>
+                ) : null}
+              </div>
+
             </div>
 
             <div className="md-card">
