@@ -5,6 +5,7 @@
   }
 
   .main-content {
+    margin-top: 40px;
     order: 1;
   }
 
@@ -79,7 +80,6 @@
   }
 
   .timeline-shell {
-    margin-top: 40px;
     gap: 28px;
   }
 
@@ -127,7 +127,6 @@
   }
 
   .article-shell {
-    margin-top: 40px;
   }
 
   .article-shell .article-hero {
@@ -146,8 +145,8 @@
   .post-list {
     gap: 0;
     padding: 0;
-    margin-top: 40px;
   }
+  
 
   .post-list .post-card {
     border-top: 1px dashed var(--md-sys-color-outline-variant);
