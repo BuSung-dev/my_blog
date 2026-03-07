@@ -462,7 +462,7 @@ html.dark-theme .markdown-body .hljs-meta .hljs-string {
 
 .about-section + .about-section {
   padding-top: 8px;
-  border-top: 1px dashed var(--md-sys-color-outline-variant);
+  /* border-top: 1px dashed var(--md-sys-color-outline-variant); */
 }
 
 .section-subtitle {
