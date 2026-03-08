@@ -5,6 +5,10 @@ import { useEffect } from "react";
 export function ClientEffects() {
   useEffect(() => {
     function createRipple(event) {
+      if (event.pointerType === "mouse" && event.button !== 0) {
+        return;
+      }
+
       const target = event.target.closest(".ripple");
 
       if (!target) {
@@ -32,10 +36,10 @@ export function ClientEffects() {
       }, 600);
     }
 
-    document.addEventListener("mousedown", createRipple);
+    document.addEventListener("pointerdown", createRipple);
 
     return () => {
-      document.removeEventListener("mousedown", createRipple);
+      document.removeEventListener("pointerdown", createRipple);
     };
   }, []);
 
