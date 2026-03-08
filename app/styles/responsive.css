@@ -5,7 +5,7 @@
   }
 
   .main-content {
-    margin-top: 40px;
+    margin-top: 25px;
     order: 1;
   }
 
@@ -279,4 +279,9 @@
   .about-grid {
     grid-template-columns: 1fr;
   }
+
+  .global-header {
+  height: 60px;
+}
+
 }
