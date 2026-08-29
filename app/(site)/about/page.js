@@ -30,7 +30,7 @@ export default function AboutPage() {
       <section className="content-section">
         <div className="md-card content-card">
           <h2 className="section-title">Baek Bu Seung (백부승)</h2>
-          <p className="section-copy">{profile.bio}</p>
+          <p className="section-copy">{profile.bio}<br/>Contact : kikim77777@gmail.com</p>
           <div className="about-grid">
             <div>
               <h3 className="section-subtitle"># Interested in...</h3>
